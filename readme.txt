@@ -19,7 +19,7 @@ This plugin attempts to fill gaps in Gravity Forms upload fields. It enables you
 
 == Installation ==
 
-1. Upload the `gravityforms-uploadrules` folder to the `/wp-content/plugins/` directory
+1. Upload the `gravity-forms-upload-rules` folder to the `/wp-content/plugins/` directory
 2. Make sure you have Gravity Forms plugin installed and activated.
 3. Activate the Gravity Forms Upload Rules plugin through the 'Plugins' menu in WordPress.
 3. You should be able to use the new field settings under Advanced tab of your upload fields in Gravity Forms - Form Edit screens.
