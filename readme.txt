@@ -12,7 +12,7 @@ Adds extra upload rules to file/image Gravity Froms upload fields. You will be a
 
 == Description ==
 
-Gravity Forms is probably most popular and mature plugin for building and managing custom forms in WordPress.
+Gravity Forms is probably the most popular and mature plugin for building and managing custom forms in WordPress.
 
 = Upload Rules =
 This plugin attempts to fill gaps in Gravity Forms upload fields. It enables you to set file size and image size dimensions limitations to your upload fields - both file upload and image upload.
