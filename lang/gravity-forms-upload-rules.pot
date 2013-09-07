@@ -1,0 +1,93 @@
+# Copyright (C) 2013 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version:  \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/gravity-forms-upload-rules\n"
+"POT-Creation-Date: 2013-06-02 20:26:09+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: gforms-uploadrules.php:40 gforms-uploadrules.php:191
+msgid "Filesize Limit"
+msgstr ""
+
+#: gforms-uploadrules.php:48 gforms-uploadrules.php:192
+msgid "Image dimensions"
+msgstr ""
+
+#: gforms-uploadrules.php:51
+msgid "&ndash; Select &ndash;"
+msgstr ""
+
+#: gforms-uploadrules.php:52
+msgid "Exact"
+msgstr ""
+
+#: gforms-uploadrules.php:53
+msgid "Conditional"
+msgstr ""
+
+#: gforms-uploadrules.php:63 gforms-uploadrules.php:80
+#: gforms-uploadrules.php:88
+msgid "Width"
+msgstr ""
+
+#: gforms-uploadrules.php:69 gforms-uploadrules.php:82
+#: gforms-uploadrules.php:90
+msgid "Height"
+msgstr ""
+
+#: gforms-uploadrules.php:78
+msgid "Min"
+msgstr ""
+
+#: gforms-uploadrules.php:86
+msgid "Max"
+msgstr ""
+
+#: gforms-uploadrules.php:130
+msgid "Max file upload size (%s) exceeded."
+msgstr ""
+
+#: gforms-uploadrules.php:159
+msgid "Only images with dimensions %d&times;%d allowed."
+msgstr ""
+
+#: gforms-uploadrules.php:166
+msgid "Min width: <b>%dpx</b>"
+msgstr ""
+
+#: gforms-uploadrules.php:170
+msgid "Min height: <b>%dpx</b>"
+msgstr ""
+
+#: gforms-uploadrules.php:174
+msgid "Max width: <b>%dpx</b>"
+msgstr ""
+
+#: gforms-uploadrules.php:178
+msgid "Max height: <b>%dpx</b>"
+msgstr ""
+
+#: gforms-uploadrules.php:182
+msgid "Image dimension didn't meet following size conditions:"
+msgstr ""
+
+#: gforms-uploadrules.php:191
+msgid ""
+"Enter filesize limit for uploaded file. Exceeding uploads will be rejected "
+"with an error."
+msgstr ""
+
+#: gforms-uploadrules.php:192
+msgid ""
+"Set validation conditions for uploaded image. Choose between <i>Exact</i> or "
+"<i>Conditional</i> validation methods. Empty fields will be not checked "
+"against. All values are in <b>pixels</b>. Non-matching images will be "
+"rejected with an error."
+msgstr ""
