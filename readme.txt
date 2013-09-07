@@ -35,6 +35,10 @@ Not yet.
 
 == Changelog ==
 
+= 1.0 =
+
+* Possible fix for those who don't get upload rules fields in their admin form editor
+
 = 0.91 =
 
 * Fixed JS issue causing "Uncaught TypeError" error
