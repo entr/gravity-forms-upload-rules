@@ -2,22 +2,31 @@
 
 class GFUploadRules {
 
-	function localize() {
+  protected static $version = '1.0';
+
+	public function localize() {
 		
 		$locale = apply_filters( 'plugin_locale', get_locale(), 'gforms_uprules' );
 		load_textdomain( 'gforms_uprules', WP_LANG_DIR . "/gforms_uprules/gforms_uprules-$locale.mo" );
 		load_plugin_textdomain( 'gforms_uprules', null, basename( plugin_dir_path( __FILE__ ) ) . 'lang' );
 	}
 	
-	function register_scripts() {
-		wp_register_script('gform_uprules_plugin_form_editor', plugins_url('/js/form_editor.js', __FILE__), array('jquery') );
+	public function register_scripts() {
+		wp_register_script('gform_uprules_plugin_form_editor', plugins_url('/js/form_editor.js', __FILE__), array('jquery'), self::$version, true );
 	}
 	
-	function editor_js() {
-		wp_print_scripts(array('gform_uprules_plugin_form_editor'));
+	public function editor_js() {
+
+		if ( ! in_array( 'gform_uprules_plugin_form_editor', wp_print_scripts(array('gform_uprules_plugin_form_editor')) ) ) :
+    ?>
+    <script type="text/javascript" id="gform_uprules_plugin_form_editor">
+    <?php include plugin_dir_path( __FILE__ ) . 'js/form_editor.js'; ?>
+    </script>
+    <?php
+    endif;
 	}
   
-  function dimension_field_label_minwidth() {
+  public function dimension_field_label_minwidth() {
     
     $locale = apply_filters( 'plugin_locale', get_locale(), 'gforms_uprules' );
     $label_minwidth_by_locale = apply_filters( 'gforms_uprules_dimension_field_label_minwidth', array( 'en_US' => 50 ) );
@@ -29,7 +38,7 @@ class GFUploadRules {
     return 50;
   }
 	
-	function field_settings( $position ) {
+	public function field_settings( $position ) {
 		if ( 200 != $position )
 			return;
       
@@ -95,7 +104,7 @@ class GFUploadRules {
 		<?php
 	}
   
-  function field_validation( $valid, $value, $form, $field ) {
+  public function field_validation( $valid, $value, $form, $field ) {
     if ( ! empty( $_FILES ) && $valid['is_valid'] && in_array( RGFormsModel::get_input_type($field), array( 'fileupload', 'post_image' ) ) ) {
       
       $form_id = $form['id'];
@@ -142,11 +151,11 @@ class GFUploadRules {
     return $valid;
   }
   
-  function is_valid_dim( $val ) {
+  public function is_valid_dim( $val ) {
     return (bool)( trim($val) == absint( $val ) && $val > 0 );
   }
   
-  function validate_image_dimensions( $field, $width, $height ) {
+  public function validate_image_dimensions( $field, $width, $height ) {
     
     $valid = array( 'is_valid' => true, 'message' => '' );
     switch ( $field['uprules_dims_ruletype'] ) {
@@ -186,7 +195,7 @@ class GFUploadRules {
     return $valid;
   }
   
-  function tooltips( $gf_tooltips ) {
+  public function tooltips( $gf_tooltips ) {
     $gf_uprules_tooltips = array(
       'form_field_uprules_filesize' => "<h6>" . __("Filesize Limit", "gforms_uprules") . "</h6>" . __("Enter filesize limit for uploaded file. Exceeding uploads will be rejected with an error.", "gforms_uprules"),
       'form_field_uprules_dimensions' => "<h6>" . __("Image dimensions", "gforms_uprules") . "</h6>" . __("Set validation conditions for uploaded image. Choose between <i>Exact</i> or <i>Conditional</i> validation methods. Empty fields will be not checked against. All values are in <b>pixels</b>. Non-matching images will be rejected with an error.", "gforms_uprules") 
