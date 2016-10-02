@@ -2,7 +2,7 @@
 
 class GFUploadRules {
 
-    protected static $version = '1.0';
+    protected static $version = '1.0.1';
 
     public static function localize() {
 

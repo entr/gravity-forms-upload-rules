@@ -3,7 +3,7 @@
 Plugin Name: Gravity Forms Upload Rules
 Plugin URI: http://zzlatev.com/gravity-forms-upload-limits/
 Description: Adds extra upload rules to file/image Gravity Froms upload fields. You will be able to limit upload filesize and dimensions of uploaded images.
-Version: 1.0
+Version: 1.0.1
 Author: Zlatko Zlatev
 Author URI: http://zzlatev.com/
 Textdomain: gforms_uprules

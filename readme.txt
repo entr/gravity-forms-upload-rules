@@ -5,7 +5,7 @@ Donate link: http://zzlatev.com/gravity-forms-upload-limits/#donate
 Tags: gravity-forms upload-rules upload
 Requires at least: 3.0
 Tested up to: 3.6
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,6 +17,8 @@ Gravity Forms is probably the most popular and mature plugin for building and ma
 
 = Upload Rules =
 This plugin attempts to fill gaps in Gravity Forms upload fields. It enables you to set file size and image size dimensions limitations to your upload fields - both file upload and image upload.
+
+For issues and pull requests please use the [GitHub repo](https://github.com/entr/gravity-forms-upload-rules).
 
 == Installation ==
 
@@ -35,6 +37,12 @@ Not yet.
 2. Plugin settings in Post Image fields under Advanced tab. Filesize limit and Exact image dimensions.
 
 == Changelog ==
+
+= 1.0.1 =
+
+* Proper static function declarations
+* Tweak admin field styles for better compatability with recent GF versions
+* Normalize line-endings and indentation
 
 = 1.0 =
 
