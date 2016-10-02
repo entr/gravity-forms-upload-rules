@@ -45,18 +45,18 @@ class GFUploadRules {
     $label_minwidth = self::dimension_field_label_minwidth();
 		?>
 		<li class="uprules_filesize_setting field_setting">
-			<label for="field_uprules_filesize">
+			<label for="field_uprules_filesize" class="section_label">
 				<?php _e("Filesize Limit", "gforms_uprules"); ?>
         <?php gform_tooltip("form_field_uprules_filesize"); ?>
 			</label>
 			<input type="text" id="field_uprules_filesize" style="text-align: right;" onkeyup="SetFieldProperty('uprules_filesize_limit', this.value);" size="10" />
-			<select id="field_uprules_filesize_dim" onchange="SetFieldProperty('uprules_filesize_dim', jQuery(this).val() );"><option value="kb">KB</option><option value="mb">MB</option></select>
+			<select id="field_uprules_filesize_dim" style="margin: 0;" onchange="SetFieldProperty('uprules_filesize_dim', jQuery(this).val() );"><option value="kb">KB</option><option value="mb">MB</option></select>
 		</li>
     <li class="uprules_dimensions_setting field_setting">
-      <label>
+      <label class="section_label">
         <?php _e("Image dimensions", "gforms_uprules"); ?>
 
-        <select id="field_uprules_dims_ruletype" onchange="SetFieldProperty('uprules_dims_ruletype', jQuery(this).val() );">
+        <select id="field_uprules_dims_ruletype" style="margin: 0;" onchange="SetFieldProperty('uprules_dims_ruletype', jQuery(this).val() );">
           <option value="" style="text-align: center"><?php _e("&ndash; Select &ndash;", "gforms_uprules"); ?></option>
           <option value="exact"><?php _e("Exact", "gforms_uprules"); ?></option>
           <option value="conditional"><?php _e("Conditional", "gforms_uprules"); ?></option>
