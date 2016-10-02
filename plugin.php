@@ -12,8 +12,8 @@ Textdomain: gforms_uprules
 add_action( 'plugins_loaded', 'gravityforms_uploadrules_load' );
 
 function gravityforms_uploadrules_load() {
-	if ( class_exists( 'GFForms' ) || class_exists( 'RGForms' ) ) {
-		
-		require_once( plugin_dir_path( __FILE__ ) . 'gforms-uploadrules.php' );
-	}
+    if ( class_exists( 'GFForms' ) || class_exists( 'RGForms' ) ) {
+        
+        require_once( plugin_dir_path( __FILE__ ) . 'gforms-uploadrules.php' );
+    }
 }

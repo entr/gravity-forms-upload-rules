@@ -4,27 +4,27 @@ class GFUploadRules {
 
   protected static $version = '1.0';
 
-	public static function localize() {
+    public static function localize() {
 
-		$locale = apply_filters( 'plugin_locale', get_locale(), 'gforms_uprules' );
-		load_textdomain( 'gforms_uprules', WP_LANG_DIR . "/gforms_uprules/gforms_uprules-$locale.mo" );
-		load_plugin_textdomain( 'gforms_uprules', null, basename( plugin_dir_path( __FILE__ ) ) . 'lang' );
-	}
+        $locale = apply_filters( 'plugin_locale', get_locale(), 'gforms_uprules' );
+        load_textdomain( 'gforms_uprules', WP_LANG_DIR . "/gforms_uprules/gforms_uprules-$locale.mo" );
+        load_plugin_textdomain( 'gforms_uprules', null, basename( plugin_dir_path( __FILE__ ) ) . 'lang' );
+    }
 
-	public static function register_scripts() {
-		wp_register_script('gform_uprules_plugin_form_editor', plugins_url('/js/form_editor.js', __FILE__), array('jquery'), self::$version, true );
-	}
+    public static function register_scripts() {
+        wp_register_script('gform_uprules_plugin_form_editor', plugins_url('/js/form_editor.js', __FILE__), array('jquery'), self::$version, true );
+    }
 
-	public static function editor_js() {
+    public static function editor_js() {
 
-		if ( ! in_array( 'gform_uprules_plugin_form_editor', wp_print_scripts(array('gform_uprules_plugin_form_editor')) ) ) :
+        if ( ! in_array( 'gform_uprules_plugin_form_editor', wp_print_scripts(array('gform_uprules_plugin_form_editor')) ) ) :
     ?>
     <script type="text/javascript" id="gform_uprules_plugin_form_editor">
     <?php include plugin_dir_path( __FILE__ ) . 'js/form_editor.js'; ?>
     </script>
     <?php
     endif;
-	}
+    }
 
   public static function dimension_field_label_minwidth() {
 
@@ -38,20 +38,20 @@ class GFUploadRules {
     return 50;
   }
 
-	public static function field_settings( $position ) {
-		if ( 200 != $position )
-			return;
+    public static function field_settings( $position ) {
+        if ( 200 != $position )
+            return;
 
     $label_minwidth = self::dimension_field_label_minwidth();
-		?>
-		<li class="uprules_filesize_setting field_setting">
-			<label for="field_uprules_filesize" class="section_label">
-				<?php _e("Filesize Limit", "gforms_uprules"); ?>
+        ?>
+        <li class="uprules_filesize_setting field_setting">
+            <label for="field_uprules_filesize" class="section_label">
+                <?php _e("Filesize Limit", "gforms_uprules"); ?>
         <?php gform_tooltip("form_field_uprules_filesize"); ?>
-			</label>
-			<input type="text" id="field_uprules_filesize" style="text-align: right;" onkeyup="SetFieldProperty('uprules_filesize_limit', this.value);" size="10" />
-			<select id="field_uprules_filesize_dim" style="margin: 0;" onchange="SetFieldProperty('uprules_filesize_dim', jQuery(this).val() );"><option value="kb">KB</option><option value="mb">MB</option></select>
-		</li>
+            </label>
+            <input type="text" id="field_uprules_filesize" style="text-align: right;" onkeyup="SetFieldProperty('uprules_filesize_limit', this.value);" size="10" />
+            <select id="field_uprules_filesize_dim" style="margin: 0;" onchange="SetFieldProperty('uprules_filesize_dim', jQuery(this).val() );"><option value="kb">KB</option><option value="mb">MB</option></select>
+        </li>
     <li class="uprules_dimensions_setting field_setting">
       <label class="section_label">
         <?php _e("Image dimensions", "gforms_uprules"); ?>
@@ -101,8 +101,8 @@ class GFUploadRules {
       </div> <!--//-- .uprules_dims_fields_conditional -->
 
     </li>
-		<?php
-	}
+        <?php
+    }
 
   public static function field_validation( $valid, $value, $form, $field ) {
     if ( ! empty( $_FILES ) && $valid['is_valid'] && in_array( RGFormsModel::get_input_type($field), array( 'fileupload', 'post_image' ) ) ) {
@@ -124,15 +124,15 @@ class GFUploadRules {
 
 
       //validate filesize
-			if ( isset( $field['uprules_filesize_limit'] ) ) {
-				$multipliers = array(
-					'kb' => 1024,
-					'mb' => 1024 * 1024
-				);
-				$max_filesize_user = intval( $field['uprules_filesize_limit'] );
-				$bytes_multiplier = $multipliers[$field['uprules_filesize_dim']];
-				$max_filesize_bytes = $max_filesize_user * $bytes_multiplier;
-			}
+            if ( isset( $field['uprules_filesize_limit'] ) ) {
+                $multipliers = array(
+                    'kb' => 1024,
+                    'mb' => 1024 * 1024
+                );
+                $max_filesize_user = intval( $field['uprules_filesize_limit'] );
+                $bytes_multiplier = $multipliers[$field['uprules_filesize_dim']];
+                $max_filesize_bytes = $max_filesize_user * $bytes_multiplier;
+            }
 
       if ( isset( $bytes ) && isset( $max_filesize_bytes ) && $max_filesize_user > 0 && $max_filesize_bytes < $bytes ) {
         $valid['is_valid'] = false;
@@ -204,14 +204,14 @@ class GFUploadRules {
     return array_merge( $gf_uprules_tooltips, $gf_tooltips );
   }
 
-	public static function actions() {
+    public static function actions() {
     add_filter( 'gform_field_validation', array( __CLASS__, 'field_validation' ), 10, 4 );
-		add_action( 'gform_field_advanced_settings', array( __CLASS__, 'field_settings' ), 5 );
-		add_action( 'gform_editor_js', array( __CLASS__, 'editor_js' ), 20 );
-		add_filter( 'gform_tooltips', array( __CLASS__, 'tooltips' ) );
-		add_action( 'admin_init',  array( __CLASS__, 'register_scripts' ) );
-		add_action( 'init', array( __CLASS__, 'localize' ) );
-	}
+        add_action( 'gform_field_advanced_settings', array( __CLASS__, 'field_settings' ), 5 );
+        add_action( 'gform_editor_js', array( __CLASS__, 'editor_js' ), 20 );
+        add_filter( 'gform_tooltips', array( __CLASS__, 'tooltips' ) );
+        add_action( 'admin_init',  array( __CLASS__, 'register_scripts' ) );
+        add_action( 'init', array( __CLASS__, 'localize' ) );
+    }
 
 }
 
